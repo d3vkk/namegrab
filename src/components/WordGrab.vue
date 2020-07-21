@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="p-8 m-4 text-center">
-      <div ref="gottenWord" class="text-4xl font-bold"></div>
-      <div ref="gottenSyllables" class="text-2xl italic"></div>
+      <div ref="showWord" class="text-4xl font-bold"></div>
+      <div ref="showSyllables" class="text-2xl italic"></div>
     </div>
     <div class="p-8 m-4 text-center">
       <button
@@ -24,8 +24,8 @@ export default {
         console.log(res.status);
       } else {
         const scrapedData = JSON.parse(await res.json());
-        this.$refs.gottenWord.innerHTML = scrapedData.word;
-        this.$refs.gottenSyllables.innerHTML = scrapedData.syllables;
+        this.$refs.showWord.innerHTML = scrapedData.word;
+        this.$refs.showSyllables.innerHTML = scrapedData.syllables;
       }
     }
   },
