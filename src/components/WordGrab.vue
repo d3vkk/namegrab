@@ -23,9 +23,9 @@ export default {
       if (res.status != 200) {
         console.log(res.status);
       } else {
-        const gottenWord = JSON.parse(await res.json());
-        this.$refs.gottenWord.innerHTML = gottenWord.word;
-        this.$refs.gottenSyllables.innerHTML = gottenWord.syllables;
+        const scrapedData = JSON.parse(await res.json());
+        this.$refs.gottenWord.innerHTML = scrapedData.word;
+        this.$refs.gottenSyllables.innerHTML = scrapedData.syllables;
       }
     }
   },
