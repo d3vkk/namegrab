@@ -11,22 +11,41 @@
         ref="getWord"
         @click="getWord()"
       >Hunt</button>
+      <button
+        class="py-2 px-6 m-4 text-2xl border-2 border-black"
+        title="save word"
+        ref="saveWord"
+        @click="saveWord()"
+      >Grab</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      scrapedData: {},
+      savedWords: []
+    };
+  },
   methods: {
     async getWord() {
       const res = await fetch(`http://localhost:3000/word`);
       if (res.status != 200) {
         console.log(res.status);
       } else {
-        const scrapedData = JSON.parse(await res.json());
-        this.$refs.showWord.innerHTML = scrapedData.word;
-        this.$refs.showSyllables.innerHTML = scrapedData.syllables;
+        this.scrapedData = JSON.parse(await res.json());
+        this.$refs.showWord.innerHTML = this.scrapedData.word;
+        this.$refs.showSyllables.innerHTML = this.scrapedData.syllables;
       }
+    },
+    saveWord() {
+      this.savedWords.push(this.scrapedData);
+      localStorage.setItem(
+        "savedWords",
+        JSON.stringify({ savedWords: this.savedWords })
+      );
     }
   },
   created() {
