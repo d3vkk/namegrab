@@ -51,6 +51,7 @@ export default {
         "savedWords",
         JSON.stringify({ savedWords: this.savedWords })
       );
+      this.getWord();
     }
   },
   created() {
