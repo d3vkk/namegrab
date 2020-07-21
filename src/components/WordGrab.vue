@@ -41,7 +41,7 @@ export default {
       }
     },
     saveWord() {
-      this.savedWords.push(this.scrapedData);
+      this.savedWords.push(this.scrapedData.word);
       localStorage.setItem(
         "savedWords",
         JSON.stringify({ savedWords: this.savedWords })
