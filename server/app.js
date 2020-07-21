@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 const fetch = require("node-fetch");
 
+app.get('/', (req, res) => {
+  res.redirect('https://wordgrab.netlify.app');
+})
+
 app.get('/word', (req, res) => {
   fetch("https://www.thisworddoesnotexist.com/", {
       headers: {
