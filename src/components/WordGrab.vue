@@ -18,6 +18,11 @@
         @click="saveWord()"
       >Grab</button>
     </div>
+    <div class="p-8 m-4 text-center">
+      <div v-if="savedWords.length != 0">
+        <div v-for="(word, wordIndex) in savedWords" :key="wordIndex">{{ word }}</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -50,6 +55,11 @@ export default {
   },
   created() {
     this.getWord();
+  },
+  mounted() {
+    var localStorageWords = JSON.parse(localStorage.getItem("savedWords"));
+    this.savedWords =
+      localStorageWords == null ? [] : localStorageWords.savedWords;
   }
 };
 </script>
