@@ -10,12 +10,15 @@
         title="get word"
         ref="getWord"
         @click="getWord()"
+        :disabled="isFetching"
+        :class="{ 'disabled-btn': isFetching }"
       >Hunt</button>
       <button
         class="py-2 px-6 m-4 text-2xl border-2 border-black secondary-btn"
         title="save word"
         ref="saveWord"
         @click="saveWord()"
+        :disabled="isFetching"
       >Grab</button>
     </div>
     <div class="pt-8 mt-4 text-center">
@@ -39,16 +42,19 @@ export default {
   data() {
     return {
       scrapedData: {},
-      savedWords: []
+      savedWords: [],
+      isFetching: false
     };
   },
   methods: {
     async getWord() {
       const res = await fetch(`http://localhost:3000/word`);
+      this.isFetching = true;
       if (res.status != 200) {
         console.log(res.status);
       } else {
         this.scrapedData = JSON.parse(await res.json());
+        this.isFetching = false;
         this.$refs.showWord.innerHTML = this.scrapedData.word;
         this.$refs.showSyllables.innerHTML = this.scrapedData.syllables;
       }
