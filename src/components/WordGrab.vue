@@ -1,8 +1,15 @@
 <template>
   <div>
     <div class="p-8 m-4 text-center">
-      <div ref="showWord" class="text-4xl font-bold"></div>
-      <div ref="showSyllables" class="text-2xl italic"></div>
+      <div class="load-animation" v-show="isFetching">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+      </div>
+      <div  v-show="!isFetching" ref="showWord" class="text-4xl font-bold"></div>
+      <div  v-show="!isFetching" ref="showSyllables" class="text-2xl italic"></div>
     </div>
     <div class="p-8 m-4 text-center">
       <button
