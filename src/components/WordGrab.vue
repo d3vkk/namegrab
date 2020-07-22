@@ -87,9 +87,10 @@ export default {
     this.getWord();
   },
   mounted() {
-    var localStorageWords = JSON.parse(localStorage.getItem("savedWords"));
-    this.savedWords =
-      localStorageWords == null ? [] : localStorageWords.savedWords;
+    var localStorageWords = localStorage.getItem("savedWords");
+    this.savedWords = localStorageWords
+      ? JSON.parse(localStorageWords).savedWords
+      : [];
   }
 };
 </script>
