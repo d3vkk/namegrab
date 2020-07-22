@@ -18,6 +18,14 @@
         @click="saveWord()"
       >Grab</button>
     </div>
+    <div class="pt-8 mt-4 text-center">
+      <button
+        class="text-base tertiary-btn uppercase"
+        title="Copy Words To Clipboard"
+        ref="saveWord"
+        @click="copyWordsToClipboard()"
+      >Copy</button>
+    </div>
     <div class="p-8 m-4 text-center">
       <div v-if="savedWords.length != 0">
         <div v-for="(word, wordIndex) in savedWords" :key="wordIndex">{{ word }}</div>
@@ -52,6 +60,14 @@ export default {
         JSON.stringify({ savedWords: this.savedWords })
       );
       this.getWord();
+    },
+    copyWordsToClipboard() {
+      var textArea = document.createElement("textarea");
+      textArea.value = this.savedWords.join(' ');
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textArea);
     }
   },
   created() {
