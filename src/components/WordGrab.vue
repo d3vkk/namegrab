@@ -38,7 +38,10 @@
     </div>
     <div class="my-4 mx-40 text-center saved-words-box">
       <div v-if="savedWords.length != 0" ref="savedWords" class="m-4 text-xl p-4">
-        <div v-for="(word, wordIndex) in savedWords" :key="wordIndex">{{ word }}</div>
+        <div v-for="(word, wordIndex) in savedWords" :key="wordIndex">
+          <span class="inline-block mr-1">{{ word }}</span>
+          <span class="text-xl" @click="removeWord(wordIndex)">X</span>
+        </div>
       </div>
     </div>
   </div>
@@ -66,12 +69,15 @@ export default {
         this.$refs.showSyllables.innerHTML = this.scrapedData.syllables;
       }
     },
-    saveWord() {
-      this.savedWords.push(this.scrapedData.word);
+    saveWordsToLocalStorage() {
       localStorage.setItem(
         "savedWords",
         JSON.stringify({ savedWords: this.savedWords })
       );
+    },
+    saveWord() {
+      this.savedWords.push(this.scrapedData.word);
+      this.saveWordsToLocalStorage();
       this.getWord();
     },
     copyWordsToClipboard() {
@@ -81,6 +87,10 @@ export default {
       textArea.select();
       document.execCommand("copy");
       document.body.removeChild(textArea);
+    },
+    removeWord(wordIndex) {
+      this.savedWords.splice(wordIndex, 1);
+      this.saveWordsToLocalStorage();
     }
   },
   created() {
