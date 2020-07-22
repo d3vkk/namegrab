@@ -30,10 +30,15 @@
     </div>
     <div class="pt-8 mt-4 text-center">
       <button
-        class="text-base tertiary-btn uppercase"
+        class="text-base tertiary-btn uppercase mr-3"
         title="Copy Words To Clipboard"
         @click="copyWordsToClipboard()"
       >Copy</button>
+      <button
+        class="text-base tertiary-btn uppercase"
+        title="Clear"
+        @click="clearWords()"
+      >Clear</button>
     </div>
     <div class="my-4 mx-40 text-center saved-words-box">
       <div v-if="savedWords.length != 0" ref="savedWords" class="m-4 text-xl p-4">
@@ -89,6 +94,10 @@ export default {
     },
     removeWord(wordIndex) {
       this.savedWords.splice(wordIndex, 1);
+      this.saveWordsToLocalStorage();
+    },
+    clearWords(){
+      this.savedWords = {};
       this.saveWordsToLocalStorage();
     }
   },
