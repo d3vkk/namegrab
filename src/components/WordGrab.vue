@@ -6,13 +6,13 @@
     </div>
     <div class="p-8 m-4 text-center">
       <button
-        class="py-2 px-6 m-4 shadow text-2xl border-2 border-black"
+        class="py-2 px-6 m-4 shadow text-2xl border-2 border-black primary-btn"
         title="get word"
         ref="getWord"
         @click="getWord()"
       >Hunt</button>
       <button
-        class="py-2 px-6 m-4 text-2xl border-2 border-black"
+        class="py-2 px-6 m-4 text-2xl border-2 border-black secondary-btn"
         title="save word"
         ref="saveWord"
         @click="saveWord()"
@@ -26,8 +26,8 @@
         @click="copyWordsToClipboard()"
       >Copy</button>
     </div>
-    <div class="p-8 m-4 text-center">
-      <div v-if="savedWords.length != 0">
+    <div class="my-4 mx-40 text-center saved-words-box">
+      <div v-if="savedWords.length != 0" ref="savedWords" class="m-4 text-xl p-4">
         <div v-for="(word, wordIndex) in savedWords" :key="wordIndex">{{ word }}</div>
       </div>
     </div>

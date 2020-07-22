@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --blue: #020086;
+    --cream: #fdefe5;
+    --white: #ffffff;
+    --black: #000000;
+}
+
+body {
+    background-color: var(--cream);
+    color: var(--black);
+}
+
+.primary-btn {
+    background-color: var(--black);
+    color: var(--cream);
+}
+
+.saved-words-box {
+    box-shadow: inset 0 2px 14px 0 rgba(0, 0, 0, 0.06);
+}
