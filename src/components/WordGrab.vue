@@ -8,8 +8,8 @@
         <div class="ball"></div>
         <div class="ball"></div>
       </div>
-      <div  v-show="!isFetching" ref="showWord" class="text-4xl font-bold"></div>
-      <div  v-show="!isFetching" ref="showSyllables" class="text-2xl italic"></div>
+      <div v-show="!isFetching" ref="showWord" class="text-4xl font-bold"></div>
+      <div v-show="!isFetching" ref="showSyllables" class="text-2xl italic"></div>
     </div>
     <div class="p-8 m-4 text-center">
       <button
@@ -76,7 +76,7 @@ export default {
     },
     copyWordsToClipboard() {
       var textArea = document.createElement("textarea");
-      textArea.value = this.savedWords.join(' ');
+      textArea.value = this.savedWords.join(" ");
       document.body.appendChild(textArea);
       textArea.select();
       document.execCommand("copy");
