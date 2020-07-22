@@ -32,7 +32,6 @@
       <button
         class="text-base tertiary-btn uppercase"
         title="Copy Words To Clipboard"
-        ref="saveWord"
         @click="copyWordsToClipboard()"
       >Copy</button>
     </div>
