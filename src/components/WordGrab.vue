@@ -14,7 +14,7 @@
     <div class="p-8 m-4 text-center">
       <button
         class="py-2 px-6 m-4 shadow text-2xl border-2 border-black primary-btn"
-        title="get word"
+        title="Get Word"
         ref="getWord"
         @click="getWord()"
         :disabled="isFetching"
@@ -22,7 +22,7 @@
       >Hunt</button>
       <button
         class="py-2 px-6 m-4 text-2xl border-2 border-black secondary-btn"
-        title="save word"
+        title="Save Word"
         ref="saveWord"
         @click="saveWord()"
         :disabled="isFetching"
