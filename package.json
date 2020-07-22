@@ -1,6 +1,6 @@
 {
   "name": "wordgrab",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -26,6 +26,6 @@
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"
   },
-  "_id": "wordgrab@0.1.0",
+  "_id": "wordgrab@0.1.2",
   "readme": "ERROR: No README data found!"
 }
