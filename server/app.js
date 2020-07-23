@@ -8,10 +8,10 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  res.redirect('https://wordgrab.netlify.app');
+  res.redirect('https://namegrab.netlify.app');
 })
 
-app.get('/word', (req, res) => {
+app.get('/name', (req, res) => {
   fetch("https://www.thisworddoesnotexist.com/", {
       headers: {
         accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
@@ -36,7 +36,7 @@ app.get('/word', (req, res) => {
       )[0];
       console.log(name, syllables);
       res.json(JSON.stringify({
-        word: name,
+        name: name,
         syllables: syllables
       }));
     })

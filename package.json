@@ -1,5 +1,5 @@
 {
-  "name": "wordgrab",
+  "name": "namegrab",
   "version": "0.1.2",
   "private": true,
   "scripts": {
@@ -26,6 +26,6 @@
     "eslint-plugin-vue": "^6.2.2",
     "vue-template-compiler": "^2.6.11"
   },
-  "_id": "wordgrab@0.1.2",
+  "_id": "namegrab@0.1.2",
   "readme": "ERROR: No README data found!"
 }

@@ -1,4 +1,4 @@
-# wordgrab
+# namegrab
 
 ## Project setup
 ```

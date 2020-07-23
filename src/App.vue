@@ -8,39 +8,39 @@
         <div class="ball"></div>
         <div class="ball"></div>
       </div>
-      <div v-show="!isFetching" ref="showWord" class="text-4xl font-bold"></div>
+      <div v-show="!isFetching" ref="showName" class="text-4xl font-bold"></div>
       <div v-show="!isFetching" ref="showSyllables" class="text-2xl italic"></div>
     </div>
     <div class="p-8 m-4 text-center">
       <button
         class="py-2 px-6 m-4 shadow text-2xl border-2 border-black primary-btn"
-        title="Get Word"
-        ref="getWord"
-        @click="getWord()"
+        title="Get Name"
+        ref="getName"
+        @click="getName()"
         :disabled="isFetching"
         :class="{ 'disabled-btn': isFetching }"
       >Hunt</button>
       <button
         class="py-2 px-6 m-4 text-2xl border-2 border-black secondary-btn"
-        title="Save Word"
-        ref="saveWord"
-        @click="saveWord()"
+        title="Save Name"
+        ref="saveName"
+        @click="saveName()"
         :disabled="isFetching"
       >Grab</button>
     </div>
     <div class="pt-8 mt-4 text-center">
       <button
         class="text-base tertiary-btn uppercase mr-3"
-        title="Copy Words To Clipboard"
-        @click="copyWordsToClipboard()"
+        title="Copy Names To Clipboard"
+        @click="copyNamesToClipboard()"
       >Copy</button>
-      <button class="text-base tertiary-btn uppercase" title="Clear" @click="clearWords()">Clear</button>
+      <button class="text-base tertiary-btn uppercase" title="Clear" @click="clearNames()">Clear</button>
     </div>
-    <div class="my-4 mx-40 text-center saved-words-box">
-      <div v-if="savedWords.length != 0" ref="savedWords" class="m-4 text-xl p-4">
-        <div v-for="(word, wordIndex) in savedWords" :key="wordIndex">
-          <span class="inline-block mr-1">{{ word }}</span>
-          <span class="text-xl" @click="removeWord(wordIndex)">X</span>
+    <div class="my-4 mx-40 text-center saved-names-box">
+      <div v-if="savedNames.length != 0" ref="savedNames" class="m-4 text-xl p-4">
+        <div v-for="(name, nameIndex) in savedNames" :key="nameIndex">
+          <span class="inline-block mr-1">{{ name }}</span>
+          <span class="text-xl" @click="removeName(nameIndex)">X</span>
         </div>
       </div>
     </div>
@@ -53,58 +53,58 @@ export default {
   data() {
     return {
       scrapedData: {},
-      savedWords: [],
+      savedNames: [],
       isFetching: false
     };
   },
   methods: {
-    async getWord() {
-      const res = await fetch(`http://localhost:3000/word`);
+    async getName() {
+      const res = await fetch(`http://localhost:3000/name`);
       this.isFetching = true;
       if (res.status != 200) {
         console.log(res.status);
       } else {
         this.scrapedData = JSON.parse(await res.json());
         this.isFetching = false;
-        this.$refs.showWord.innerHTML = this.scrapedData.word;
+        this.$refs.showName.innerHTML = this.scrapedData.name;
         this.$refs.showSyllables.innerHTML = this.scrapedData.syllables;
       }
     },
-    saveWordsToLocalStorage() {
+    saveNamesToLocalStorage() {
       localStorage.setItem(
-        "savedWords",
-        JSON.stringify({ savedWords: this.savedWords })
+        "savedNames",
+        JSON.stringify({ savedNames: this.savedNames })
       );
     },
-    saveWord() {
-      this.savedWords.push(this.scrapedData.word);
-      this.saveWordsToLocalStorage();
-      this.getWord();
+    saveName() {
+      this.savedNames.push(this.scrapedData.name);
+      this.saveNamesToLocalStorage();
+      this.getName();
     },
-    copyWordsToClipboard() {
+    copyNamesToClipboard() {
       var textArea = document.createElement("textarea");
-      textArea.value = this.savedWords.join(" ");
+      textArea.value = this.savedNames.join(" ");
       document.body.appendChild(textArea);
       textArea.select();
       document.execCommand("copy");
       document.body.removeChild(textArea);
     },
-    removeWord(wordIndex) {
-      this.savedWords.splice(wordIndex, 1);
-      this.saveWordsToLocalStorage();
+    removeName(nameIndex) {
+      this.savedNames.splice(nameIndex, 1);
+      this.saveNamesToLocalStorage();
     },
-    clearWords() {
-      this.savedWords = {};
-      this.saveWordsToLocalStorage();
+    clearNames() {
+      this.savedNames = {};
+      this.saveNamesToLocalStorage();
     }
   },
   created() {
-    this.getWord();
+    this.getName();
   },
   mounted() {
-    var localStorageWords = localStorage.getItem("savedWords");
-    this.savedWords = localStorageWords
-      ? JSON.parse(localStorageWords).savedWords
+    var localStorageNames = localStorage.getItem("savedNames");
+    this.savedNames = localStorageNames
+      ? JSON.parse(localStorageNames).savedNames
       : [];
   }
 };
