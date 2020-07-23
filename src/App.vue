@@ -94,7 +94,7 @@ export default {
       this.saveNamesToLocalStorage();
     },
     clearNames() {
-      this.savedNames = {};
+      this.savedNames = [];
       this.saveNamesToLocalStorage();
     }
   },
