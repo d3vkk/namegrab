@@ -27,7 +27,7 @@
       </div>
       <div class="p-8 m-4 text-center">
         <button
-          class="py-2 px-6 m-4 shadow text-2xl border-2 border-black primary-btn"
+          class="py-2 px-6 m-4 shadow text-xl primary-btn"
           title="Get Name"
           ref="getName"
           @click="getName()"
@@ -35,7 +35,7 @@
           :class="{ 'disabled-btn': isFetching }"
         >Hunt</button>
         <button
-          class="py-2 px-6 m-4 text-2xl border-2 border-black secondary-btn"
+          class="py-2 px-6 m-4 text-xl secondary-btn"
           title="Save Name"
           ref="saveName"
           @click="saveName()"

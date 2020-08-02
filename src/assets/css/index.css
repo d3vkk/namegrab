@@ -20,6 +20,11 @@ body {
 .primary-btn {
     background-color: var(--text-color);
     color: var(--bg-color);
+    border: 2px solid var(--text-color);
+}
+
+.secondary-btn {
+    border: 2px solid var(--text-color);
 }
 
 .primary-btn.disabled-btn {
