@@ -58,7 +58,7 @@
               <span class="text-2xl" @click="removeName(nameIndex)">X</span>
             </p>
           </div>
-          <div v-else>
+          <div v-else class="m-4 p-4 text-xl">
             Saved Names will be shown here
           </div>
         </article>
