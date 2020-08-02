@@ -5,26 +5,24 @@
 @tailwind utilities;
 
 :root {
-    --blue: #020086;
-    --cream: #fdefe5;
-    --white: #ffffff;
-    --black: #000000;
+    --bg-color: #fafafa;
+    --text-color: #232933;
 }
 
 body {
-    background-color: var(--cream);
-    color: var(--black);
+    background-color: var(--bg-color);
+    color: var(--text-color);
     font-family: 'Lato', sans-serif;
 }
 
 .primary-btn {
-    background-color: var(--black);
-    color: var(--cream);
+    background-color: var(--text-color);
+    color: var(--bg-color);
 }
 
 .primary-btn.disabled-btn {
     background-color: transparent;
-    color: var(--black);
+    color: var(--text-color);
     border-color: transparent;
 }
 
@@ -46,35 +44,35 @@ body {
 }
 
 .ball:nth-child(1) {
-    background: var(--black);
+    background: var(--text-color);
     -webkit-animation: right 1s infinite ease-in-out;
     -moz-animation: right 1s infinite ease-in-out;
     animation: right 1s infinite ease-in-out;
 }
 
 .ball:nth-child(2) {
-    background: var(--black);
+    background: var(--text-color);
     -webkit-animation: left 1.1s infinite ease-in-out;
     -moz-animation: left 1.1s infinite ease-in-out;
     animation: left 1.1s infinite ease-in-out;
 }
 
 .ball:nth-child(3) {
-    background: var(--black);
+    background: var(--text-color);
     -webkit-animation: right 1.05s infinite ease-in-out;
     -moz-animation: right 1.05s infinite ease-in-out;
     animation: right 1.05s infinite ease-in-out;
 }
 
 .ball:nth-child(4) {
-    background: var(--black);
+    background: var(--text-color);
     -webkit-animation: left 1.15s infinite ease-in-out;
     -moz-animation: left 1.15s infinite ease-in-out;
     animation: left 1.15s infinite ease-in-out;
 }
 
 .ball:nth-child(5) {
-    background: var(--black);
+    background: var(--text-color);
     -webkit-animation: right 1.1s infinite ease-in-out;
     -moz-animation: right 1.1s infinite ease-in-out;
     animation: right 1.1s infinite ease-in-out;
