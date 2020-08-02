@@ -14,7 +14,7 @@
       </div>
     </div>
     <div v-show="!showAboutPage">
-      <div class="p-8 m-4 text-center">
+      <div class="m-12 text-center">
         <div class="load-animation" v-show="isFetching">
           <div class="ball"></div>
           <div class="ball"></div>
@@ -25,9 +25,9 @@
         <div v-show="!isFetching" ref="showName" class="text-4xl font-bold"></div>
         <div v-show="!isFetching" ref="showSyllables" class="text-2xl italic"></div>
       </div>
-      <div class="p-8 m-4 text-center">
+      <div class="mx-4 mt-4 mb-8 text-center">
         <button
-          class="py-2 px-6 m-4 shadow text-xl primary-btn"
+          class="py-2 px-6 m-2 shadow text-xl primary-btn"
           title="Get Name"
           ref="getName"
           @click="getName()"
@@ -35,14 +35,14 @@
           :class="{ 'disabled-btn': isFetching }"
         >Hunt</button>
         <button
-          class="py-2 px-6 m-4 text-xl secondary-btn"
+          class="py-2 px-6 m-2 text-xl secondary-btn"
           title="Save Name"
           ref="saveName"
           @click="saveName()"
           :disabled="isFetching"
         >Grab</button>
       </div>
-      <div class="pt-8 mt-4 text-center">
+      <div class="m-4 text-center">
         <button
           class="text-base tertiary-btn uppercase mr-3"
           title="Copy Names To Clipboard"
@@ -50,11 +50,13 @@
         >Copy</button>
         <button class="text-base tertiary-btn uppercase" title="Clear" @click="clearNames()">Clear</button>
       </div>
-      <div class="my-4 mx-40 text-center saved-names-box">
-        <div v-if="savedNames.length != 0" ref="savedNames" class="m-4 text-xl p-4">
-          <div v-for="(name, nameIndex) in savedNames" :key="nameIndex">
-            <span class="inline-block mr-1">{{ name }}</span>
-            <span class="text-xl" @click="removeName(nameIndex)">X</span>
+      <div class="flex flex-row justify-center text-center">
+        <div class="mx-4 mb-12 saved-names-box">
+          <div v-if="savedNames.length != 0" ref="savedNames" class="m-4 p-4 text-xl">
+            <div v-for="(name, nameIndex) in savedNames" :key="nameIndex">
+              <span class="inline-block mr-1">{{ name }}</span>
+              <span class="text-xl" @click="removeName(nameIndex)">X</span>
+            </div>
           </div>
         </div>
       </div>
