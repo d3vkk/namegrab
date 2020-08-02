@@ -107,12 +107,10 @@ export default {
   },
   methods: {
     async getName() {
-      const res = await fetch(`http://localhost:3000/name`);
+      const res = await fetch(`https://namegrab.herokuapp.com/name`);
       this.isFetching = true;
-      if (res.status != 200) {
-        console.log(res.status);
-      } else {
-        this.scrapedData = JSON.parse(await res.json());
+      if (res.status == 200) {
+          this.scrapedData = JSON.parse(await res.json());
         this.isFetching = false;
         this.$refs.showName.innerHTML = this.scrapedData.name;
         this.$refs.showSyllables.innerHTML = this.scrapedData.syllables;
