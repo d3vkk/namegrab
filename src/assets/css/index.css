@@ -164,6 +164,17 @@ body {
     }
 }
 
+.grid-bg {
+    background-image: linear-gradient(var(--text-color) 1px, transparent 1px),
+        linear-gradient(to right, var(--text-color) 1px, transparent 1px);
+    background-position: 0 0, 25px 25px;
+    background-size: calc(3 * 25px) calc(3 * 25px);
+}
+
+.about-details {
+    background-color: var(--bg-color);
+}
+
 footer {
     background-color: var(--footer-bg-color);
     color: var(--footer-text-color);
