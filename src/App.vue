@@ -61,6 +61,12 @@
         </div>
       </div>
     </div>
+    <div
+      class="mx-4 mt-4 mb-12 text-2xl text-center"
+      ref="themeSwitcher"
+      title="Change Theme"
+      @click="toggleTheme()"
+    >🌙</div>
   </div>
 </template>
 
@@ -72,7 +78,13 @@ export default {
       scrapedData: {},
       savedNames: [],
       isFetching: false,
-      showAboutPage: false
+      showAboutPage: false,
+      isDarkTheme: false,
+      themeColors: {
+        white: "#fafafa",
+        blue: "#232933",
+        altBlue: "#3e495b"
+      }
     };
   },
   methods: {
@@ -117,6 +129,26 @@ export default {
     },
     toggleAboutPage(showOrHide) {
       this.showAboutPage = showOrHide;
+    },
+    setThemeColor(cssVariable, setColor) {
+      document.documentElement.style.setProperty(cssVariable, setColor);
+    },
+    toggleTheme() {
+      if (this.isDarkTheme) {
+        this.$refs.themeSwitcher.innerHTML = "🌙";
+        this.setThemeColor("--bg-color", this.themeColors.white);
+        this.setThemeColor("--text-color", this.themeColors.blue);
+        this.setThemeColor("--footer-bg-color", this.themeColors.blue);
+        this.setThemeColor("--footer-text-color", this.themeColors.white);
+        this.isDarkTheme = false;
+      } else {
+        this.$refs.themeSwitcher.innerHTML = "🌞";
+        this.setThemeColor("--bg-color", this.themeColors.blue);
+        this.setThemeColor("--text-color", this.themeColors.white);
+        this.setThemeColor("--footer-bg-color", this.themeColors.altBlue);
+        this.setThemeColor("--footer-text-color", this.themeColors.white);
+        this.isDarkTheme = true;
+      }
     }
   },
   created() {
