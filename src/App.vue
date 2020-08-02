@@ -70,6 +70,19 @@
       title="Change Theme"
       @click="toggleTheme()"
     >🌙</div>
+    <footer class="p-2">
+      <div class=" flex flex-row justify-center mx-4 mt-4">
+        <img src="img/logo.svg" alt="NameGrab Logo" style="height:50px;">
+      </div>
+      <div class="flex flex-col justify-center text-center text-sm">
+        <div class="mb-4">
+          Made with Inspiration from
+          <div><a href="https://find-your-next-startups-name.now.sh">Find Your Next Startup Name</a></div>
+          <div><a href="https://www.thisworddoesnotexist.com/">This Word Does Not Exist</a></div>
+        </div>
+        <div>&copy; 2020 Donald K &bull; MIT License</div>
+      </div>
+    </footer>
   </div>
 </template>
 
