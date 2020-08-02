@@ -7,6 +7,8 @@
 :root {
     --bg-color: #fafafa;
     --text-color: #232933;
+    --footer-bg-color: var(--text-color);
+    --footer-text-color: var(--bg-color);
 }
 
 body {
@@ -160,4 +162,13 @@ body {
     100% {
         transform: translate(15px);
     }
+}
+
+footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+}
+
+footer a {
+    text-decoration: underline;
 }
