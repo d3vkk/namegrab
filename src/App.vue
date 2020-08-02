@@ -6,26 +6,26 @@
       </div>
       <div @click="toggleAboutPage(true)">about</div>
     </nav>
-    <div v-show="showAboutPage" class>
-      <div class="p-12 text-center grid-bg text-xl">
-        <div class="rounded p-4 about-details">
-          <div class="mb-2">NameGrab generates names from an Artificial Intelligence Bot 🤖.</div>Feel Free 🖖 to use it for your New 🌟 idea, dog, cat, project, startup, product, gamertag, social media username... You name it 😎!
-        </div>
-      </div>
-    </div>
-    <div v-show="!showAboutPage">
-      <div class="m-12 text-center">
-        <div class="load-animation" v-show="isFetching">
+    <main v-show="showAboutPage" class>
+      <section class="p-12 text-center grid-bg text-xl">
+        <article class="rounded p-4 about-details">
+          <p class="mb-2">NameGrab generates names from an Artificial Intelligence Bot 🤖.</p>Feel Free 🖖 to use it for your New 🌟 idea, dog, cat, project, startup, product, gamertag, social media username... You name it 😎!
+        </article>
+      </section>
+    </main>
+    <main v-show="!showAboutPage">
+      <section class="m-12 text-center">
+        <article class="load-animation" v-show="isFetching">
           <div class="ball"></div>
           <div class="ball"></div>
           <div class="ball"></div>
           <div class="ball"></div>
           <div class="ball"></div>
-        </div>
-        <div v-show="!isFetching" ref="showName" class="text-4xl font-bold"></div>
-        <div v-show="!isFetching" ref="showSyllables" class="text-2xl italic"></div>
-      </div>
-      <div class="mx-4 mt-4 mb-8 text-center">
+        </article>
+        <article v-show="!isFetching" ref="showName" class="text-4xl font-bold"></article>
+        <article v-show="!isFetching" ref="showSyllables" class="text-2xl italic"></article>
+      </section>
+      <section class="mx-4 mt-4 mb-8 text-center">
         <button
           class="py-2 px-6 m-2 shadow text-xl primary-btn"
           title="Get Name"
@@ -41,47 +41,47 @@
           @click="saveName()"
           :disabled="isFetching"
         >Grab</button>
-      </div>
-      <div class="m-4 text-center">
+      </section>
+      <section class="m-4 text-center">
         <button
           class="text-base tertiary-btn uppercase mr-3"
           title="Copy Names To Clipboard"
           @click="copyNamesToClipboard()"
         >Copy</button>
         <button class="text-base tertiary-btn uppercase" title="Clear" @click="clearNames()">Clear</button>
-      </div>
-      <div class="flex flex-row justify-center text-center">
-        <div class="mx-4 mb-12 saved-names-box">
+      </section>
+      <section class="flex flex-row justify-center text-center">
+        <article class="mx-4 mb-12 saved-names-box">
           <div v-if="savedNames.length != 0" ref="savedNames" class="m-4 p-4 text-xl">
-            <div v-for="(name, nameIndex) in savedNames" :key="nameIndex">
+            <p v-for="(name, nameIndex) in savedNames" :key="nameIndex">
               <span class="inline-block mr-1">{{ name }}</span>
-              <span class="text-xl" @click="removeName(nameIndex)">X</span>
-            </div>
+              <span class="text-2xl" @click="removeName(nameIndex)">X</span>
+            </p>
           </div>
           <div v-else>
             Saved Names will be shown here
           </div>
-        </div>
-      </div>
-    </div>
-    <div
+        </article>
+      </section>
+    </main>
+    <section
       class="mx-4 mt-4 mb-12 text-2xl text-center"
       ref="themeSwitcher"
       title="Change Theme"
       @click="toggleTheme()"
-    >🌙</div>
+    >🌙</section>
     <footer class="p-2">
-      <div class=" flex flex-row justify-center mx-4 mt-4">
+      <section class=" flex flex-row justify-center mx-4 mt-4">
         <img src="img/logo.svg" alt="NameGrab Logo" style="height:50px;">
-      </div>
-      <div class="flex flex-col justify-center text-center text-sm">
-        <div class="mb-4">
+      </section>
+      <section class="flex flex-col justify-center text-center text-sm">
+        <article class="mb-4">
           Made with Inspiration from
           <div><a href="https://find-your-next-startups-name.now.sh">Find Your Next Startup Name</a></div>
           <div><a href="https://www.thisworddoesnotexist.com/">This Word Does Not Exist</a></div>
-        </div>
-        <div>&copy; 2020 Donald K &bull; MIT License</div>
-      </div>
+        </article>
+        <p>&copy; 2020 Donald K &bull; MIT License</p>
+      </section>
     </footer>
   </div>
 </template>
