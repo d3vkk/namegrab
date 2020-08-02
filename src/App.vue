@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <nav class="p-2 flex-row flex justify-around text-xl shadow-md">
+    <nav class="flex flex-row justify-around p-2 text-xl shadow-md">
       <div @click="toggleAboutPage(false)">
         <img src="img/logo.svg" alt="NameGrab Logo" style="height:30px;" />
       </div>
       <div @click="toggleAboutPage(true)">about</div>
     </nav>
     <main v-show="showAboutPage" class>
-      <section class="p-12 text-center grid-bg text-xl">
-        <article class="rounded p-4 about-details">
+      <section class="p-12 text-xl text-center grid-bg">
+        <article class="p-4 rounded about-details">
           <p class="mb-2">NameGrab generates names from an Artificial Intelligence Bot 🤖.</p>Feel Free 🖖 to use it for your New 🌟 idea, dog, cat, project, startup, product, gamertag, social media username... You name it 😎!
         </article>
       </section>
@@ -27,7 +27,7 @@
       </section>
       <section class="mx-4 mt-4 mb-8 text-center">
         <button
-          class="py-2 px-6 m-2 shadow text-xl primary-btn"
+          class="px-6 py-2 m-2 text-xl shadow primary-btn"
           title="Get Name"
           ref="getName"
           @click="getName()"
@@ -35,7 +35,7 @@
           :class="{ 'disabled-btn': isFetching }"
         >Hunt</button>
         <button
-          class="py-2 px-6 m-2 text-xl secondary-btn"
+          class="px-6 py-2 m-2 text-xl secondary-btn"
           title="Save Name"
           ref="saveName"
           @click="saveName()"
@@ -44,23 +44,21 @@
       </section>
       <section class="m-4 text-center">
         <button
-          class="text-base tertiary-btn uppercase mr-3"
+          class="mr-3 text-base uppercase tertiary-btn"
           title="Copy Names To Clipboard"
           @click="copyNamesToClipboard()"
         >Copy</button>
-        <button class="text-base tertiary-btn uppercase" title="Clear" @click="clearNames()">Clear</button>
+        <button class="text-base uppercase tertiary-btn" title="Clear" @click="clearNames()">Clear</button>
       </section>
       <section class="flex flex-row justify-center text-center">
         <article class="mx-4 mb-12 saved-names-box">
-          <div v-if="savedNames.length != 0" ref="savedNames" class="m-4 p-4 text-xl">
+          <div v-if="savedNames.length != 0" ref="savedNames" class="p-4 m-4 text-xl">
             <p v-for="(name, nameIndex) in savedNames" :key="nameIndex">
               <span class="inline-block mr-1">{{ name }}</span>
               <span class="text-2xl" @click="removeName(nameIndex)">X</span>
             </p>
           </div>
-          <div v-else class="m-4 p-4 text-xl">
-            Saved Names will be shown here
-          </div>
+          <div v-else class="p-4 m-4 text-xl">Saved Names will be shown here</div>
         </article>
       </section>
     </main>
@@ -71,14 +69,18 @@
       @click="toggleTheme()"
     >🌙</section>
     <footer class="p-2">
-      <section class=" flex flex-row justify-center mx-4 mt-4">
-        <img src="img/logo.svg" alt="NameGrab Logo" style="height:50px;">
+      <section class="flex flex-row justify-center mx-4 mt-4">
+        <img src="img/logo.svg" alt="NameGrab Logo" style="height:50px;" />
       </section>
-      <section class="flex flex-col justify-center text-center text-sm">
+      <section class="flex flex-col justify-center text-sm text-center">
         <article class="mb-4">
           Made with Inspiration from
-          <div><a href="https://find-your-next-startups-name.now.sh">Find Your Next Startup Name</a></div>
-          <div><a href="https://www.thisworddoesnotexist.com/">This Word Does Not Exist</a></div>
+          <div>
+            <a href="https://find-your-next-startups-name.now.sh">Find Your Next Startup Name</a>
+          </div>
+          <div>
+            <a href="https://www.thisworddoesnotexist.com/">This Word Does Not Exist</a>
+          </div>
         </article>
         <p>&copy; 2020 Donald K &bull; MIT License</p>
       </section>
