@@ -2,7 +2,7 @@
   <div id="app">
     <nav class="p-2 flex-row flex justify-around text-xl shadow-md">
       <div>
-        NameGrab
+        <img src="img/logo.svg" alt="NameGrab Logo" style="height:30px;" />
       </div>
       <div>about</div>
     </nav>
