@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <nav class="p-2 flex-row flex justify-around text-xl shadow-md">
+      <div>
+        NameGrab
+      </div>
+      <div>about</div>
+    </nav>
     <div class="p-8 m-4 text-center">
       <div class="load-animation" v-show="isFetching">
         <div class="ball"></div>
