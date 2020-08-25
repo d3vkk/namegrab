@@ -151,6 +151,13 @@ export default {
     setThemeColor(cssVariable, setColor) {
       document.documentElement.style.setProperty(cssVariable, setColor);
     },
+    swithToDarkTheme() {
+      this.$refs.themeSwitcher.innerHTML = "🌞";
+      this.setThemeColor("--bg-color", this.themeColors.blue);
+      this.setThemeColor("--text-color", this.themeColors.white);
+      this.setThemeColor("--footer-bg-color", this.themeColors.altBlue);
+      this.setThemeColor("--footer-text-color", this.themeColors.white);
+    },
     toggleTheme() {
       if (this.isDarkTheme) {
         this.$refs.themeSwitcher.innerHTML = "🌙";
@@ -158,13 +165,17 @@ export default {
         this.setThemeColor("--text-color", this.themeColors.blue);
         this.setThemeColor("--footer-bg-color", this.themeColors.blue);
         this.setThemeColor("--footer-text-color", this.themeColors.white);
+        localStorage.setItem(
+          "prefersDarkTheme",
+          JSON.stringify({ prefersDarkTheme: false })
+        );
         this.isDarkTheme = false;
       } else {
-        this.$refs.themeSwitcher.innerHTML = "🌞";
-        this.setThemeColor("--bg-color", this.themeColors.blue);
-        this.setThemeColor("--text-color", this.themeColors.white);
-        this.setThemeColor("--footer-bg-color", this.themeColors.altBlue);
-        this.setThemeColor("--footer-text-color", this.themeColors.white);
+        this.swithToDarkTheme();
+        localStorage.setItem(
+          "prefersDarkTheme",
+          JSON.stringify({ prefersDarkTheme: true })
+        );
         this.isDarkTheme = true;
       }
     },
@@ -177,6 +188,13 @@ export default {
     this.savedNames = localStorageNames
       ? JSON.parse(localStorageNames).savedNames
       : [];
+    var localStorageTheme = localStorage.getItem("prefersDarkTheme");
+    this.isDarkTheme = localStorageTheme
+      ? JSON.parse(localStorageTheme).prefersDarkTheme
+      : false;
+    if (this.isDarkTheme) {
+      this.swithToDarkTheme();
+    }
   },
 };
 </script>
