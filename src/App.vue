@@ -101,8 +101,8 @@ export default {
       themeColors: {
         white: "#fafafa",
         blue: "#232933",
-        altBlue: "#3e495b"
-      }
+        altBlue: "#3e495b",
+      },
     };
   },
   methods: {
@@ -167,7 +167,7 @@ export default {
         this.setThemeColor("--footer-text-color", this.themeColors.white);
         this.isDarkTheme = true;
       }
-    }
+    },
   },
   created() {
     this.getName();
@@ -177,7 +177,7 @@ export default {
     this.savedNames = localStorageNames
       ? JSON.parse(localStorageNames).savedNames
       : [];
-  }
+  },
 };
 </script>
 
