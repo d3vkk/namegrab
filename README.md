@@ -1,24 +1,24 @@
-# namegrab
+# NameGrab 
 
-## Project setup
+![NameGrab Logo](https://github.com/d3vkk/namegrab/blob/master/public/img/logo.svg)
+
+Name Generator from an AI Bot
+
+[Website](https://namegrab.netlify.app)
+
+## Contribution
+
+To contribute, [use this guide](https://github.com/d3vkk/open-source/blob/master/CONTRIBUTING.md)
+
+## Usage
+
+Star this repo for future reference
+
+[Open in browser-based Visual Studio Code](https://vscode.dev/github/d3vkk/namegrab)
+
+Fork or clone this repo
 ```
-npm install
+git clone https://github.com/d3vkk/namegrab.git
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+© 2020-present Donald K • Under MIT License
